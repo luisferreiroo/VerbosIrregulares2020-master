@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Verbos Irregulares</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    </head>
+
+    <script>
+        function elegirNivel (nivel) {
+            //Tras pulsar cualquier botón(nivel), te redirige a la siguiente página.
+            window.location = "../verbos/nivelVerbo.html?nivel='" + nivel;
+        }
+    </script>
+
+    <body>
+        <div class="contenedor">
+            <div class="header">
+                <p>Pantalla de inicio</p>
+            </div>
+            <div class="nivel-container">
+                <div class="titulo">
+                    <p>Elige Nº verbos</p>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3 p-2">
+                            <button type="button" class="btn btn-primary" onclick = "seleccionarNivel(20)">20</button>
+                        </div>
+                        <div class="col-3 p-2">
+                            <button type="button" class="btn btn-primary" onclick = "seleccionarNivel(30)">30</button>
+                        </div>
+                        <div class="col-3 p-2">
+                            <button type="button" class="btn btn-primary" onclick = "seleccionarNivel(40)">40</button>
+                        </div>
+                        <div class="col-3 p-2">
+                            <button type="button" class="btn btn-primary" onclick = "seleccionarNivel(50)">50</button>
+                        </div>
+                        <div class="col-3 p-2">
+                            <button type="button" class="btn btn-primary" onclick = "seleccionarNivel(60)">60</button>
+                        </div>
+                        <div class="col-3 p-2">
+                            <button type="button" class="btn btn-primary" onclick = "seleccionarNivel(70)">70</button>
+                        </div>
+                        <div class="col-3 p-2">
+                            <button type="button" class="btn btn-primary" onclick = "seleccionarNivel(80)">80</button>
+                        </div>
+                        <div class="col-3 p-2">
+                            <button type="button" class="btn btn-primary" onclick = "seleccionarNivel(140)">140</button>
+                        </div>
+                    </div>
+                </div>
+                
+              
+            </div>
+          </div>
+
+        
+        </div>
+        <script src="js/listaVerbos.js"></script>
+        <script>
+            function eligeVerbo(){
+                var verboElegido = Math.floor( Math.random() * verbos.lenght);
+                var tiempoAAdivinar = Math.floor( Math.random() * 3); //obtengo un valor aleatorio del 0 al 2
+                
+                document.getElementById("castellano").innerHTML = verbos[verboElegido][3];
+
+                //hacemos que el texto de un botón no aparezca (al azar)
+                //para el primer botón
+                if (tiempoAAdivinar == 0){
+                    document.getElementById("boton1").innerHTML = '<input id="caja" class="form-control ">';
+                }
+                else{
+                    document.getElementById("boton1").innerHTML = 
+                '<button class="btn  btn-block btn-secondary"> '+ verbos[verboElegido][0]+ '</button>';
+                }
+                //para el segundo botón
+                if (tiempoAAdivinar == 1){
+                    document.getElementById("boton2").innerHTML = '<input id="caja" class="form-control" >';
+                }
+                else{
+                    document.getElementById("boton2").innerHTML = verbos[verboElegido][1];
+                }
+                //para el tercer botón 
+                if (tiempoAAdivinar == 2){
+                    document.getElementById("boton3").innerHTML = '<input id="caja" class="form-control" >';
+                }
+                else{
+                    document.getElementById("boton3").innerHTML = 
+                '<button class="btn  btn-block btn-secondary"> '+ verbos[verboElegido][2]+ '</button>';
+                }
+            
+                document.getElementById("boton2").innerHTML = verbos[verboElegido][1];
+                document.getElementById("boton3").innerHTML = verbos[verboElegido][2];
+                }
+                eligeVerbo();
+
+                
+
+
+        </script>
+
+        
+
+
+        <style>
+            button  {
+                width: 50%;
+            }
+            p {
+                margin-bottom: 30px 0;               
+                font-weight: bold;
+                text-align: center;
+                background-color: #a4bff7;
+            }
+        </style>
+
+
+
+</body>
+</html>
